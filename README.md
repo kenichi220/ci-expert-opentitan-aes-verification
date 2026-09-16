@@ -1,6 +1,7 @@
 # ci-expert-opentitan-aes-verification
 
 People involved:
-- Felipe Nunes Laguna ([[https://github.com/FelipeNLaguna][@FelipeNLaguna]])
-- Kenichi Brumati ([[https://github.com/Kenichi220][@Kenichi220]])
-- Lorenzo Cadó Nemitz ([[https://github.com/Lorenzonemitz][@Lorenzonemitz]])
+
+- Felipe Nunes Laguna ([@FelipeNLaguna](https://github.com/FelipeNLaguna))
+- Kenichi Brumati ([@Kenichi220](https://github.com/Kenichi220))
+- Lorenzo Cadó Nemitz ([@Lorenzonemitz](https://github.com/Lorenzonemitz))
