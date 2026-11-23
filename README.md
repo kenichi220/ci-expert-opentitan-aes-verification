@@ -6,6 +6,17 @@ People involved:
 - Kenichi Brumati ([@Kenichi220](https://github.com/Kenichi220))
 - Lorenzo Cadó Nemitz ([@Lorenzonemitz](https://github.com/Lorenzonemitz))
 
+## Pkg
+driver and monitor are class.
+vif = virtual interface 
+tb_top = constant with config-db
+
+## Coommands to run
+```bash
+git clone https://github.com/kenichi220/ci-expert-opentitan-aes-verification.git
+cd ci-expert-opentitan-aes-verification/uvm_aes/ && source env.sh && cd sim
+make build && make test 
+```
 
 ## Tools & Infrastructure
 
