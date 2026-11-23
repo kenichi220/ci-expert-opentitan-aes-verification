@@ -1,6 +1,4 @@
-# -----------------------------------------------------------------------------
-# Use: source env.sh
-# -----------------------------------------------------------------------------
+# Uso: source env.sh
 VCS_MODULE="${VCS_MODULE:-vcs}"        # ex.: vcs/U-2023.03-SP2
 VERDI_MODULE="${VERDI_MODULE:-verdi}"  # ex.: verdi/U-2023.03-SP2
 
@@ -10,7 +8,6 @@ else
   echo "[env.sh] 'module' not found - vcs/verdi"
 fi
 
-#if zsh or bash
 if [ -n "${BASH_SOURCE:-}" ]; then _f="${BASH_SOURCE[0]}"; else _f="${(%):-%x}"; fi
 export UVM_AES_ROOT="$(cd "$(dirname "$_f")" && pwd)"
 unset _f
