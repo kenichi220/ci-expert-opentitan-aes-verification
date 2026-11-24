@@ -11,6 +11,7 @@ package aes_cipher_agent_pkg;
   typedef enum {
     CMD_CRYPT,
     CMD_DEC_KEY_GEN,
+    CMD_KEY_CLEAR,
     CMD_DATA_OUT_CLEAR,
     CMD_CLEAR_ALL
   } aes_cmd_e;
