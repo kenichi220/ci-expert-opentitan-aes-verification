@@ -13,11 +13,11 @@ tb_top = constant with config-db
 
 ## Coommands to run
 ```bash
-git clone https://github.com/kenichi220/ci-expert-opentitan-aes-verification.git
-cd ci-expert-opentitan-aes-verification/uvm_aes/ && source env.sh && cd sim
+git clone https://github.com/kenichi220/ci-expert-opentitan-aes-verification.git && cd ci-expert-opentitan-aes-verification/uvm_aes/ && source env.sh && cd sim
+```
+```bash
 make build && make test 
 ```
-
 ## Tools & Infrastructure
 
 Verification is carried out with Synopsys EDA tools, running on the computing
