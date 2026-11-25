@@ -102,24 +102,42 @@ module tb_top;
   // Sp2VWidth == 3 
   //
   for (genvar i = 0; i < Sp2VWidth; i++) begin : gen_fsm_alert_chk
+
     if (SP2V_LOGIC_HIGH[i] == 1'b1) begin : gen_p
-      assign dut.u_aes_cipher_control.gen_fsm[i].gen_fsm_p.u_aes_cipher_control_fsm_i.
-             u_aes_cipher_control_fsm.u_state_regs.unused_assert_connected = 1'b1; // se renomear o rtl quebra
-      FsmErrToAlert_A: assert property (@(posedge clk) disable iff (!rst_n)
-          $rose(dut.u_aes_cipher_control.gen_fsm[i].gen_fsm_p.u_aes_cipher_control_fsm_i.
-                u_aes_cipher_control_fsm.u_state_regs.unused_err_o)
-          |-> ##[0:AlertMaxCycles] cif.alert)
-        else `uvm_error("SEC_CM", $sformatf("FSM rail %0d em estado invalido sem alert", i))
+
+      assign dut.u_aes_cipher_control
+               .gen_fsm[i].gen_fsm_p
+               .u_aes_cipher_control_fsm_i
+               .u_aes_cipher_control_fsm
+               .u_state_regs.unused_assert_connected = 1'b1;
+
+      FsmErrToAlert_A: assert property (
+        @(posedge clk) disable iff (!rst_n)
+          $rose(dut.u_aes_cipher_control
+                  .gen_fsm[i].gen_fsm_p
+                  .u_aes_cipher_control_fsm_i
+                  .u_aes_cipher_control_fsm
+                  .u_state_regs.unused_err_o)
+          |-> ##[0:AlertMaxCycles] cif.alert
+      ) else `uvm_error("SEC_CM", $sformatf("FSM rail %0d em estado invalido sem alert", i))
+
     end else begin : gen_n
-      assign dut.u_aes_cipher_control.gen_fsm[i].gen_fsm_n.u_aes_cipher_control_fsm_i.
-             u_aes_cipher_control_fsm.u_state_regs.unused_assert_connected = 1'b1; //se renomear o rtl quebra
-      FsmErrToAlert_A: assert property (@(posedge clk) disable iff (!rst_n)
-          $rose(dut.u_aes_cipher_control.gen_fsm[i].gen_fsm_n.u_aes_cipher_control_fsm_i.
-                u_aes_cipher_control_fsm.u_state_regs.unused_err_o)
-          |-> ##[0:AlertMaxCycles] cif.alert)
-          // se isso aqui ativar, fica em 30 cyclos indefinodo e no final tem
-          // que subir um alert
-        else `uvm_error("SEC_CM", $sformatf("FSM rail %0d em estado invalido sem alert", i))
+
+      assign dut.u_aes_cipher_control
+               .gen_fsm[i].gen_fsm_n
+               .u_aes_cipher_control_fsm_i
+               .u_aes_cipher_control_fsm
+               .u_state_regs.unused_assert_connected = 1'b1;
+
+      FsmErrToAlert_A: assert property (
+        @(posedge clk) disable iff (!rst_n)
+          $rose(dut.u_aes_cipher_control
+                  .gen_fsm[i].gen_fsm_n
+                  .u_aes_cipher_control_fsm_i
+                  .u_aes_cipher_control_fsm
+                  .u_state_regs.unused_err_o)
+          |-> ##[0:AlertMaxCycles] cif.alert
+      ) else `uvm_error("SEC_CM", $sformatf("FSM rail %0d em estado invalido sem alert", i))
     end
   end
 
